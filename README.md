@@ -40,9 +40,9 @@ These scripts prepare the raw datasets for subsequent analysis:
 
 These scripts combine TROPOMI and MERRA-2 data to derive new atmospheric variables:
 
-- **`pbl_hcho_and_no2.py`** – Computes planetary boundary layer (PBL) mixing ratios of HCHO and NO₂ by integrating TROPOMI vertical column densities with interpolated MERRA-2 PBL heights.
+- **`pbl_hcho_and_no2.py`** – Computes planetary boundary layer mixing ratios of HCHO and NO2. The script integrates TROPOMI vertical column densities with MERRA-2 PBL heights, interpolating PBLH fields to the TROPOMI grid.
  
-- **`tropospheric_ozone_estimation.py`** – Estimates tropospheric ozone columns by scaling TROPOMI total ozone using the troposphere-to-total ozone ratio derived from MERRA-2 reanalysis data.
+- **`tropospheric_ozone_estimation.py`** – Estimates tropospheric ozone columns by scaling TROPOMI total ozone observations using the troposphere-to-total ozone ratio derived from MERRA-2 reanalysis. The script calculates mid-level pressures, identifies tropospheric layers and interpolates the MERRA-2 ratio onto the TROPOMI grid.
 
 <br>
 
@@ -50,7 +50,7 @@ These scripts combine TROPOMI and MERRA-2 data to derive new atmospheric variabl
 
 Scripts in this group generate figures and summary plots used for analysis and interpretation:
 
-- **`seasonal_meteorology_plot.py`** – Generates seasonal and daily time series plots of meteorological parameters (temperature, humidity, pressure, precipitation). *Example output:*
+- **`seasonal_meteorology_plot.py`** – Generates seasonal and daily time series plots of meteorological parameters (air temperature, relative humidity, air pressure and precipitation). *Example output:*
 
 <div align="center">
 <figure>
@@ -59,7 +59,7 @@ Scripts in this group generate figures and summary plots used for analysis and i
 </div>
 <br>
 
-- **`monthly_meteorology_plot.py`** – Produces monthly averaged bar plots of meteorological parameters.
+- **`monthly_meteorology_plot.py`** – Produces monthly averaged bar plots of meteorological parameters (air temperature, relative humidity, air pressure and precipitation). *Example output:*
 
 <div align="center">
 <figure>
@@ -68,7 +68,7 @@ Scripts in this group generate figures and summary plots used for analysis and i
 </div>
 <br>
 
-- **`windrose_and_distribution.py`** – Creates wind rose diagrams and wind speed distribution histograms.
+- **`windrose_and_distribution.py`** – Creates wind rose diagrams and wind speed distribution histograms. *Example output:*
 
 <div align="center">
 <figure>
@@ -80,7 +80,7 @@ Scripts in this group generate figures and summary plots used for analysis and i
 </div>
 <br>
 
-- **`days_with_data.py`** – Calculates and plots the annual number of valid TROPOMI data days for multiple trace gases.
+- **`days_with_data.py`** – Calculates and plots the annual number of valid days with TROPOMI data for multiple trace gases at selected sites. *Example output:*
 
 <div align="center">
 <figure>
@@ -89,7 +89,7 @@ Scripts in this group generate figures and summary plots used for analysis and i
 </div>
 <br>
 
-- **`seasonal_average_grid.py`** – Generates 3×3 grids of seasonal averages with error bars and smoothed splines, including annual trends.
+- **`seasonal_average_grid.py`** – Generates a 3 x 3 grid of seasonal averages with error bars and smoothed splines, including annual trends for multiple selected sites. *Example output:*
 
 <div align="center">
 <figure>
@@ -98,7 +98,7 @@ Scripts in this group generate figures and summary plots used for analysis and i
 </div>
 <br>
 
-- **`hcho_x_no2_x_o3.py`** – Creates scatter plots of HCHO vs NO₂, colored by O₃, with reference lines representing FNR thresholds.
+- **`hcho_x_no2_x_o3.py`** – Creates a scatter plot of HCHO vs NO2, colored by O3, with reference lines representing FNR thresholds. *Example output:*
 
 <div align="center">
 <figure>
@@ -107,7 +107,7 @@ Scripts in this group generate figures and summary plots used for analysis and i
 </div>
 <br>
 
-- **`fnr_x_prob_o3.py`** – Plots FNR against ozone exceedance probability with polynomial fits and confidence intervals.
+- **`fnr_x_prob_o3.py`** – Plots FNR against ozone exceedance probability with a third-order polynomial fit, 95% confidence interval and peak highlighting. *Example output:*
 
 <div align="center">
 <figure>
@@ -116,7 +116,7 @@ Scripts in this group generate figures and summary plots used for analysis and i
 </div>
 <br>
 
-- **`fnr_trends_plot.py`** – Produces multi-panel seasonal trends of HCHO and NO₂ across different land-use categories with regression lines.
+- **`fnr_trends_plot.py`** – Produces multi-panel seasonal trends of HCHO and NO2 across urban, transition and forest areas with error bars and linear regression lines. *Example output:*
 
 <div align="center">
 <figure>
